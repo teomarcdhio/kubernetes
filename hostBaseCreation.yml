@@ -33,7 +33,7 @@
     ufw:
       rule: allow 
       port: 22
-      src: "{{ ansibleIP }}" 
+      src: "{{ ansible }}" 
 
   - name: Set logging
     ufw: 
