@@ -1,0 +1,9 @@
+[all:vars]
+ansible ansible_host=10.0.0.35
+
+[k8sMasters]
+k8sMaster ansible_host=10.0.0.40
+
+[k8sWorkers]
+k8sWorker1 ansible_host=10.0.0.41
+k8sWorker2 ansible_host=10.0.0.42

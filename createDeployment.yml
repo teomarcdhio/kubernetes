@@ -1,0 +1,20 @@
+---
+- hosts: k8sMasters
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: save deploymnet file
+    template:
+     src: j2_files/prodDeployment.yml.j2
+     dest: '/home/ansible/{{ deploymentname }}.yml'
+     owner: ansible
+     group: ansible
+
+  - name: create deployment
+    command: 'kubectl create -f c-{{ deploymentname }}.yml'
+    become: yes
+    become_user: ansible
+    args:
+      chdir: /home/ansible/
